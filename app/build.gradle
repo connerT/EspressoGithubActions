@@ -27,8 +27,8 @@ android {
             pixel2api29(com.android.build.api.dsl.ManagedVirtualDevice) {
                 device = "Pixel 2"
                 apiLevel = 29
-                systemImageSource = "google"
-                abi = "x86"
+                systemImageSource = "aosp"
+                require64Bit = true
             }
             pixelCapi33(com.android.build.api.dsl.ManagedVirtualDevice) {
                 device = "Pixel C"
