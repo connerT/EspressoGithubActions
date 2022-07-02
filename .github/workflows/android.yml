@@ -24,3 +24,5 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Run Instrumented Tests
+      run: ./gradlew -Pandroid.experimental.androidTest.useUnifiedTestPlatform=true phoneAndTabletGroupCheckDebugAndroidTest
