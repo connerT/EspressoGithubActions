@@ -26,4 +26,4 @@ jobs:
       run: chmod +x gradlew
 
     - name: Build with Gradle
-      run: ./gradlew -Pandroid.experimental.androidTest.useUnifiedTestPlatform=true pixelCapi33DebugAndroidTest
+      run: ./gradlew -Pandroid.experimental.androidTest.useUnifiedTestPlatform=true pixel2api29DebugAndroidTest
