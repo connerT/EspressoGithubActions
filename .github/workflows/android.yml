@@ -25,4 +25,4 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Run Instrumented Tests
-      run: ./gradlew -Pandroid.experimental.androidTest.useUnifiedTestPlatform=true phoneAndTabletGroupCheckDebugAndroidTest
+      run: ./gradlew -Pandroid.experimental.androidTest.useUnifiedTestPlatform=true phoneAndTabletGroupDebugAndroidTest
