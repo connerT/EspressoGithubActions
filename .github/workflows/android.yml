@@ -32,5 +32,8 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v2
 
+    - name: Clean devices
+      run: ./gradlew cleanManagedDevices --unused-only
+
     - name: Run instrumented tests
       run: ./gradlew pixel2api29DebugAndroidTest -Pandroid.testoptions.manageddevices.emulator.gpu="swiftshader_indirect"
