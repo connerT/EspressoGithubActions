@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -24,5 +24,8 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    - name: Run Instrumented Tests
-      run: ./gradlew -Pandroid.experimental.androidTest.useUnifiedTestPlatform=true pixelCapi33DebugAndroidTest
+    - name: run tests
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+       api-level: 33
+       script: ./gradlew -Pandroid.experimental.androidTest.useUnifiedTestPlatform=true pixelCapi33DebugAndroidTest
