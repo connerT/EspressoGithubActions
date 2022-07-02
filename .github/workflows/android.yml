@@ -12,7 +12,9 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: checkout
+      uses: actions/checkout@v3
+
     - name: set up JDK 11
       uses: actions/setup-java@v3
       with:
@@ -22,10 +24,9 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Build with Gradle
-      run: ./gradlew build
+
     - name: run tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
        api-level: 33
-       script: ./gradlew -Pandroid.experimental.androidTest.useUnifiedTestPlatform=true pixelCapi33DebugAndroidTest
+       script: ./gradlew connectedCheck
