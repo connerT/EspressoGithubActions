@@ -26,12 +26,20 @@ android {
 
     testOptions {
         devices {
-            Pixel_2_API_33(com.android.build.api.dsl.ManagedVirtualDevice) {
+//            Pixel_2_API_33(com.android.build.api.dsl.ManagedVirtualDevice) {
+//                device = "Pixel 2"
+//                apiLevel = 33
+//                systemImageSource = "google"
+//                abi = "arm64-v8a"
+//            }
+
+            pixel4api31(com.android.build.api.dsl.ManagedVirtualDevice) {
                 device = "Pixel 2"
-                apiLevel = 33
-                systemImageSource = "google"
-                abi = "arm64-v8a"
+                apiLevel = 31
+                systemImageSource = "aosp"
+                require64Bit = true
             }
+
 //            pixelCapi33(com.android.build.api.dsl.ManagedVirtualDevice) {
 //                device = "Pixel C"
 //                apiLevel = 33
@@ -41,7 +49,7 @@ android {
         }
         deviceGroups {
             phoneAndTablet {
-                targetDevices.addAll(devices.Pixel_2_API_33)
+                targetDevices.addAll(devices.pixel4api31)
             }
         }
     }
