@@ -43,6 +43,21 @@ class ExampleInstrumentedTest {
         Log.d("Tag", "Message")
     }
 
+    @Test fun calculatorTextIsPresent2() {
+        onView(withText("Calculator")).check(matches(isDisplayed()))
+        onView(withId(R.id.editTextNumber))
+            .perform(clearText())
+        onView(withId(R.id.editTextNumber))
+            .perform(typeText("123456"), closeSoftKeyboard())
+        onView(withId(R.id.btnPlus)).perform(click())
+        onView(withId(R.id.editTextNumber))
+            .perform(typeText("1"), closeSoftKeyboard())
+        onView(withId(R.id.btnEqual)).perform(click())
+//        onView(withId(R.id.editTextNumber))
+//            .check(matches(withText("1234576969.0")))
+        Log.d("Tag", "Message")
+    }
+
     @Test
     fun useAppContext() {
         // Context of the app under test.

@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 30
 
     defaultConfig {
         applicationId "com.hieuwu.calculator"
-        minSdkVersion 18
+        minSdkVersion 28
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -19,27 +20,28 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            testCoverageEnabled = true
         }
     }
 
     testOptions {
         devices {
-            pixel2api29(com.android.build.api.dsl.ManagedVirtualDevice) {
+            Pixel_2_API_33(com.android.build.api.dsl.ManagedVirtualDevice) {
                 device = "Pixel 2"
-                apiLevel = 29
-                systemImageSource = "aosp"
-                require64Bit = true
-            }
-            pixelCapi33(com.android.build.api.dsl.ManagedVirtualDevice) {
-                device = "Pixel C"
                 apiLevel = 33
                 systemImageSource = "google"
-                abi = "x86"
+                abi = "arm64-v8a"
             }
+//            pixelCapi33(com.android.build.api.dsl.ManagedVirtualDevice) {
+//                device = "Pixel C"
+//                apiLevel = 33
+//                systemImageSource = "google"
+//                abi = "x86"
+//            }
         }
         deviceGroups {
             phoneAndTablet {
-                targetDevices.addAll(devices.pixel2api29, devices.pixelCapi33)
+                targetDevices.addAll(devices.Pixel_2_API_33)
             }
         }
     }
@@ -47,14 +49,17 @@ android {
 }
 
 dependencies {
+//    implementation platform('com.google.firebase:firebase-bom:30.2.0')
+//    implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.1'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0'
+    implementation 'androidx.core:core-ktx:1.5.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     androidTestImplementation project(path: ':app')
+//    androidTestImplementation 'com.google.firebase:testlab-instr-lib:0.2'
 
 }
