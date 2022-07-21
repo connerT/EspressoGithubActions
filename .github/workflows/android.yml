@@ -26,14 +26,14 @@ jobs:
         distribution: 'adopt'
         cache: gradle
 
-    - name: Grant execute permission for gradlew
+    - name: Grant execute permission for gradlew 🚫
       run: chmod +x gradlew
 
     - name: Setup Android SDK 🤖
       uses: android-actions/setup-android@v2
 
-    - name: Verify Emulator version
+    - name: Verify Emulator version 🉑
       run: /Users/runner/Library/Android/sdk/emulator/emulator -version
 
-    - name: Run instrumented tests
+    - name: Run instrumented tests 🏃‍♀️
       run: ./gradlew -Pandroid.testoptions.manageddevices.emulator.gpu="swiftshader_indirect" pixel4api31DebugAndroidTest
