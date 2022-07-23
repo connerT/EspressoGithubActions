@@ -64,4 +64,9 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.hieuwu.calculator", appContext.packageName)
     }
+
+    @Test
+    fun failingTest() {
+        assertTrue(false);
+    }
 }
