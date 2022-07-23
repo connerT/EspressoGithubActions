@@ -18,6 +18,8 @@ jobs:
           no-window: true
           restore-gradle-cache-prefix: v1a
       - android/run-tests
+      - store_test_results: # Upload Test Results(Test Insights)
+            path: ./app/build/outputs/androidTest-results/connected
       - android/save-gradle-cache:
           cache-prefix: v1a
 workflows:
