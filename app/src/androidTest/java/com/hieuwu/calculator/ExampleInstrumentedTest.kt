@@ -65,8 +65,8 @@ class ExampleInstrumentedTest {
         assertEquals("com.hieuwu.calculator", appContext.packageName)
     }
 
-    @Test
-    fun failingTest() {
-        assertTrue(true);
-    }
+//    @Test
+//    fun failingTest() {
+//        assertTrue(true);
+//    }
 }

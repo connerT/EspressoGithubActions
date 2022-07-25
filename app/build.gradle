@@ -36,9 +36,9 @@ android {
 
             pixel4api31(com.android.build.api.dsl.ManagedVirtualDevice) {
                 device = "Pixel 2"
-                apiLevel = 31
-                systemImageSource = "aosp"
-                require64Bit = true
+                apiLevel = 30
+                systemImageSource = "aosp-atd"
+                require64Bit = false
             }
 
 //            pixelCapi33(com.android.build.api.dsl.ManagedVirtualDevice) {
