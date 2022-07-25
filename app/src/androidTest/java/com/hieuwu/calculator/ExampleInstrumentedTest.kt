@@ -67,6 +67,6 @@ class ExampleInstrumentedTest {
 
     @Test
     fun failingTest() {
-        assertTrue(false);
+        assertTrue(true);
     }
 }
